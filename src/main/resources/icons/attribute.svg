@@ -1,0 +1,13 @@
+<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+
+    <g>
+        <title>background</title>
+        <rect fill="none" id="canvas_background" height="614" width="1182" y="-1" x="-1"/>
+    </g>
+    <g>
+        <title>Layer 1</title>
+        <ellipse opacity="0.6" stroke="#000" ry="7" rx="7" id="svg_4" cy="7.99379" cx="7.960265" stroke-width="0" fill="#f4af3d"/>
+        <text stroke="#000" font-weight="bold" opacity="0.7" xml:space="preserve" text-anchor="start" font-family="" font-size="11"
+              id="svg_6" y="11" x="5" stroke-opacity="null" stroke-width="0" fill="#231f20">a</text>
+    </g>
+</svg>

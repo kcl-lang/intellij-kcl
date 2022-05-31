@@ -1,0 +1,47 @@
+// This is a generated file. Not intended for manual editing.
+package io.kusionstack.kcl.psi.impl;
+
+import java.util.List;
+import org.jetbrains.annotations.*;
+import com.intellij.lang.ASTNode;
+import com.intellij.psi.PsiElement;
+import com.intellij.psi.PsiElementVisitor;
+import com.intellij.psi.util.PsiTreeUtil;
+import static io.kusionstack.kcl.psi.KCLTypes.*;
+import com.intellij.extapi.psi.ASTWrapperPsiElement;
+import io.kusionstack.kcl.psi.*;
+
+public class KCLAssignStmtImpl extends ASTWrapperPsiElement implements KCLAssignStmt {
+
+  public KCLAssignStmtImpl(@NotNull ASTNode node) {
+    super(node);
+  }
+
+  public void accept(@NotNull KCLVisitor visitor) {
+    visitor.visitAssignStmt(this);
+  }
+
+  public void accept(@NotNull PsiElementVisitor visitor) {
+    if (visitor instanceof KCLVisitor) accept((KCLVisitor)visitor);
+    else super.accept(visitor);
+  }
+
+  @Override
+  @NotNull
+  public List<KCLIdentifier> getIdentifierList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, KCLIdentifier.class);
+  }
+
+  @Override
+  @NotNull
+  public KCLTest getTest() {
+    return findNotNullChildByClass(KCLTest.class);
+  }
+
+  @Override
+  @Nullable
+  public KCLType getType() {
+    return findChildByClass(KCLType.class);
+  }
+
+}

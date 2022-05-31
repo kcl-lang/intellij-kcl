@@ -1,0 +1,12 @@
+<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="16" width="16" y="0" x="0"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <ellipse opacity="0.6" stroke="#000" ry="7" rx="7" id="svg_4" cy="8" cx="8" stroke-width="0" fill="#40b6e0"/>
+  <text style="cursor: move;" stroke="#000" font-weight="bold" opacity="0.7" xml:space="preserve" text-anchor="start" font-family="'Trebuchet MS', Gadget, sans-serif" font-size="10" id="svg_6" y="11.3" x="4.5" stroke-opacity="null" stroke-width="0" fill="#231f20">M</text>
+ </g>
+</svg>

@@ -1,0 +1,73 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '0.5.0'
+    id 'jacoco'
+}
+
+group 'com.kusionstack.kcl'
+version System.getenv('PLUGIN_VERSION')
+
+sourceCompatibility = System.getenv('JDK_VERSION').toInteger()
+
+sourceSets.main.java.srcDirs 'src/main/gen'
+
+repositories {
+    maven {
+        url "http://repo.alibaba-inc.com/nexus/content/groups/public/"
+    }
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
+}
+
+publishPlugin {
+    token = System.getenv("ORG_GRADLE_PROJECT_intellijPublishToken")
+}
+
+
+test {
+    systemProperty "idea.home.path", "/Users/amyxia/practice/intellij-community" // the absolute path to the local intellij-community source’s root directory
+    finalizedBy jacocoTestReport
+    jacoco {
+        destinationFile = layout.buildDirectory.file('jacoco/jacocoTest.exec').get().asFile
+        classDumpDir = layout.buildDirectory.dir('jacoco/classpathdumps').get().asFile
+    }
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = true
+        csv.required = false
+        xml.destination = layout.buildDirectory.file('jacoco/report.xml').get().asFile
+        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+    }
+}
+
+jacoco {
+    toolVersion = "0.8.7"
+}
+
+
+// See https://github.com/JetBrains/gradle-intellij-plugin/
+intellij {
+    version = System.getenv('IDEA_PLATFORM_VERSION')
+//    plugins = ['PsiViewer:202-SNAPSHOT.3']//use psiViewer plugin for develop, this version is compatible to intellij 2020.2
+}
+
+patchPluginXml {
+    version = project.version
+    changeNotes = """
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>"""
+}
+
+runIde {
+    jbrVersion '11_0_7b944.20'
+}
+
+buildSearchableOptions {
+    jbrVersion '11_0_7b944.20'
+}

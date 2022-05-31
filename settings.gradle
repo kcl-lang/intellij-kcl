@@ -1,0 +1,11 @@
+pluginManagement {
+    repositories {
+        maven {
+            url "http://repo.alibaba-inc.com/nexus/content/groups/public/"
+        }
+
+    }
+}
+
+rootProject.name = 'kcl-idea-plugin'
+
