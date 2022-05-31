@@ -40,6 +40,11 @@ Right click on the project name in the project structure panel, select KCL Tools
 If the plugin isn't working as you expect, please reach out to us by filing an issue.
 
 
+## Contributing
+
+We are working actively on improving the KCL development on IntelliJ IDEA, and we welcome all kinds of contributions. You can refer to our [contribution guide](docs/CONTRIBUTING.md). It introduces how to build and run the extension locally.
+
+
 ## License
 
 Apache License Version 2.0
