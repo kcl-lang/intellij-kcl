@@ -1,17 +1,22 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <!-- Unique id for this plugin. Must stay constant for the life of the plugin. -->
-    <id>io.kusionstack.kcl.kcl-idea-plugin</id>
-    <!-- Text to display as name on Preferences/Settings | Plugin page -->
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>io.kusionstack.kcl.intellij-kcl</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
     <name>KCL</name>
+
     <category>Languages</category>
-    <!-- Text to display as company information on Preferences/Settings | Plugin page -->
-    <vendor>KusionStack</vendor>
-    <!-- Product and plugin compatibility requirements -->
-    <depends>com.intellij.modules.platform</depends>
-    <!-- Text to display as description on Preferences/Settings | Plugin page -->
-    <description>
-        <![CDATA[
-        Adds support for KCL(Kusion Configuration Language). The following features are available for free with IntelliJ IDEA:
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="xiarui1994@gmail.com" url="https://kusionstack.io/">KusionStack</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+    Adds support for KCL(Kusion Configuration Language). The following features are available for free with IntelliJ IDEA:
         <br>
         <ul>
           <li>Coding assistance (highlighting, formatting, etc.)</li>
@@ -23,15 +28,14 @@
           <li>code formatting</li>
         </ul>
         <br>
+  ]]></description>
 
-      ]]>
-    </description>
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
 
-    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
-         on how to target different products -->
-    <!-- uncomment to enable plugin in all products
-    <depends>com.intellij.modules.lang</depends>
-    -->
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
         <fileType name="KCL File" implementationClass="io.kusionstack.kcl.KCLFileType" fieldName="INSTANCE" language="KCL" extensions="k"/>
         <lang.parserDefinition language="KCL" implementationClass="io.kusionstack.kcl.KCLParserDefinition"/>
@@ -40,7 +44,7 @@
         <completion.contributor language="KCL" implementationClass="io.kusionstack.kcl.completion.KCLCompletionContributor"/>
         <lang.foldingBuilder language="KCL" implementationClass="io.kusionstack.kcl.KCLFoldingBuilder"/>
         <lang.braceMatcher language="KCL" implementationClass="io.kusionstack.kcl.KCLBraceMatcher"/>
-        <lineIndentProvider language="KCL" implementation="io.kusionstack.kcl.KCLLineIndentProvider"/>
+        <lineIndentProvider implementation="io.kusionstack.kcl.KCLLineIndentProvider"/>
         <enterBetweenBracesDelegate language="KCL"
                                     implementationClass="com.intellij.codeInsight.editorActions.enter.EnterBetweenBracesAndBracketsDelegate"/>
         <lang.psiStructureViewFactory language="KCL" implementationClass="io.kusionstack.kcl.KCLStructureViewFactory"/>
@@ -66,4 +70,5 @@
             <add-to-group group-id="HelpMenu" anchor="last"/>
         </group>
     </actions>
+
 </idea-plugin>
