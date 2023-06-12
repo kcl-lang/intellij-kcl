@@ -21,6 +21,7 @@ public class KCLExprStmtImpl extends ASTWrapperPsiElement implements KCLExprStmt
     visitor.visitExprStmt(this);
   }
 
+  @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof KCLVisitor) accept((KCLVisitor)visitor);
     else super.accept(visitor);

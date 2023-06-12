@@ -21,6 +21,7 @@ public class KCLUnificationStmtImpl extends ASTWrapperPsiElement implements KCLU
     visitor.visitUnificationStmt(this);
   }
 
+  @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof KCLVisitor) accept((KCLVisitor)visitor);
     else super.accept(visitor);

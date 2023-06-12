@@ -21,6 +21,7 @@ public class KCLShiftExprImpl extends ASTWrapperPsiElement implements KCLShiftEx
     visitor.visitShiftExpr(this);
   }
 
+  @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof KCLVisitor) accept((KCLVisitor)visitor);
     else super.accept(visitor);

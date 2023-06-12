@@ -21,6 +21,7 @@ public class KCLListCompImpl extends ASTWrapperPsiElement implements KCLListComp
     visitor.visitListComp(this);
   }
 
+  @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof KCLVisitor) accept((KCLVisitor)visitor);
     else super.accept(visitor);

@@ -21,6 +21,7 @@ public class KCLQuantExprImpl extends ASTWrapperPsiElement implements KCLQuantEx
     visitor.visitQuantExpr(this);
   }
 
+  @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof KCLVisitor) accept((KCLVisitor)visitor);
     else super.accept(visitor);

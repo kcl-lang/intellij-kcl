@@ -21,6 +21,7 @@ public class KCLCompClauseImpl extends ASTWrapperPsiElement implements KCLCompCl
     visitor.visitCompClause(this);
   }
 
+  @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof KCLVisitor) accept((KCLVisitor)visitor);
     else super.accept(visitor);

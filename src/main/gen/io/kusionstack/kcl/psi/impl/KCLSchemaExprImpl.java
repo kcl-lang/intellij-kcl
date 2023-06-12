@@ -21,6 +21,7 @@ public class KCLSchemaExprImpl extends ASTWrapperPsiElement implements KCLSchema
     visitor.visitSchemaExpr(this);
   }
 
+  @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof KCLVisitor) accept((KCLVisitor)visitor);
     else super.accept(visitor);

@@ -8,16 +8,13 @@ import com.intellij.navigation.ItemPresentation;
 
 public interface KCLSingleName extends KCLNamedElement {
 
-  @NotNull
-  String getName();
+  @NotNull String getName();
 
   PsiElement setName(@NotNull String newName);
 
-  @NotNull
   KCLSingleName getNameIdentifier();
 
-  @NotNull
-  ItemPresentation getPresentation();
+  @NotNull ItemPresentation getPresentation();
 
   KCLNameReference getReference();
 

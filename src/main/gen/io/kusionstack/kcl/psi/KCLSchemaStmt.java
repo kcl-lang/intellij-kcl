@@ -26,18 +26,14 @@ public interface KCLSchemaStmt extends KCLScopeOwner, KCLNamedElement {
   @NotNull
   KCLSingleName getSingleName();
 
-  @NotNull
-  String getName();
+  @NotNull String getName();
 
   PsiElement setName(@NotNull String newName);
 
-  @NotNull
   KCLSingleName getNameIdentifier();
 
-  @NotNull
-  ItemPresentation getPresentation();
+  @NotNull ItemPresentation getPresentation();
 
-  @Nullable
   KCLIdentifier getSuperSchema();
 
 }

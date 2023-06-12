@@ -21,6 +21,7 @@ public class KCLArithExprImpl extends ASTWrapperPsiElement implements KCLArithEx
     visitor.visitArithExpr(this);
   }
 
+  @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof KCLVisitor) accept((KCLVisitor)visitor);
     else super.accept(visitor);
