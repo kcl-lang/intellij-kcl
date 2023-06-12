@@ -21,6 +21,7 @@ public class KCLDecoratorExprImpl extends ASTWrapperPsiElement implements KCLDec
     visitor.visitDecoratorExpr(this);
   }
 
+  @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof KCLVisitor) accept((KCLVisitor)visitor);
     else super.accept(visitor);

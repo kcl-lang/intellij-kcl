@@ -21,6 +21,7 @@ public class KCLFactorImpl extends ASTWrapperPsiElement implements KCLFactor {
     visitor.visitFactor(this);
   }
 
+  @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof KCLVisitor) accept((KCLVisitor)visitor);
     else super.accept(visitor);

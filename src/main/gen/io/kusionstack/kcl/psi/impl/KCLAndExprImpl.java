@@ -21,6 +21,7 @@ public class KCLAndExprImpl extends ASTWrapperPsiElement implements KCLAndExpr {
     visitor.visitAndExpr(this);
   }
 
+  @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof KCLVisitor) accept((KCLVisitor)visitor);
     else super.accept(visitor);

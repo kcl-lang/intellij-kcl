@@ -22,14 +22,14 @@ public class KCLSingleNameImpl extends ASTWrapperPsiElement implements KCLSingle
     visitor.visitSingleName(this);
   }
 
+  @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof KCLVisitor) accept((KCLVisitor)visitor);
     else super.accept(visitor);
   }
 
   @Override
-  @NotNull
-  public String getName() {
+  public @NotNull String getName() {
     return KCLPsiImplUtil.getName(this);
   }
 
@@ -39,14 +39,12 @@ public class KCLSingleNameImpl extends ASTWrapperPsiElement implements KCLSingle
   }
 
   @Override
-  @NotNull
   public KCLSingleName getNameIdentifier() {
     return KCLPsiImplUtil.getNameIdentifier(this);
   }
 
   @Override
-  @NotNull
-  public ItemPresentation getPresentation() {
+  public @NotNull ItemPresentation getPresentation() {
     return KCLPsiImplUtil.getPresentation(this);
   }
 

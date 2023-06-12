@@ -21,6 +21,7 @@ public class KCLCompoundStmtImpl extends ASTWrapperPsiElement implements KCLComp
     visitor.visitCompoundStmt(this);
   }
 
+  @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof KCLVisitor) accept((KCLVisitor)visitor);
     else super.accept(visitor);

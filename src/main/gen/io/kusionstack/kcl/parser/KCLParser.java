@@ -1862,7 +1862,7 @@ public class KCLParser implements PsiParser, LightPsiParser {
     p = r; // pin = 1
     r = r && report_error_(b, dot_name(b, l + 1));
     r = p && import_stmt_2(b, l + 1) && r;
-    exit_section_(b, l, m, r, p, recoverImport_parser_);
+    exit_section_(b, l, m, r, p, KCLParser::recoverImport);
     return r || p;
   }
 
@@ -3697,9 +3697,4 @@ public class KCLParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  static final Parser recoverImport_parser_ = new Parser() {
-    public boolean parse(PsiBuilder b, int l) {
-      return recoverImport(b, l + 1);
-    }
-  };
 }
