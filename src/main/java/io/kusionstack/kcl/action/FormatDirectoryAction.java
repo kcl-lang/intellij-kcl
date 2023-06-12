@@ -23,9 +23,10 @@ public class FormatDirectoryAction extends DumbAwareAction {
     public void update(@NotNull AnActionEvent e) {
         // Using the event, evaluate the context, and enable or disable the action.
         // the action button is visible only when the current focused item is a file directory
-        e.getPresentation().setVisible(e.getRequiredData(CommonDataKeys.VIRTUAL_FILE).isDirectory());
+        VirtualFile vf = e.getData(CommonDataKeys.VIRTUAL_FILE);
+        e.getPresentation().setVisible((vf != null && vf.isDirectory()));
         // the action button is enabled only when kcl is installed
-        e.getPresentation().setEnabled(KCLBinaryUtil.KCLInstalled());
+        e.getPresentation().setEnabled(KCLBinaryUtil.KCLFmtCmdInstalled());
     }
 
     @Override

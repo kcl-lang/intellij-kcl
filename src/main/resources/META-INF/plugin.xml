@@ -1,13 +1,16 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <!-- Unique id for this plugin. Must stay constant for the life of the plugin. -->
-    <id>io.kusionstack.kcl.kcl-idea-plugin</id>
-    <!-- Text to display as name on Preferences/Settings | Plugin page -->
+    <id>io.kusionstack.kcl</id>
     <name>KCL</name>
     <category>Languages</category>
     <!-- Text to display as company information on Preferences/Settings | Plugin page -->
     <vendor>KusionStack</vendor>
     <!-- Product and plugin compatibility requirements -->
     <depends>com.intellij.modules.platform</depends>
+
+    <resource-bundle>messages.ActionsBundle</resource-bundle>
+
     <!-- Text to display as description on Preferences/Settings | Plugin page -->
     <description>
         <![CDATA[
@@ -26,12 +29,6 @@
 
       ]]>
     </description>
-
-    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
-         on how to target different products -->
-    <!-- uncomment to enable plugin in all products
-    <depends>com.intellij.modules.lang</depends>
-    -->
     <extensions defaultExtensionNs="com.intellij">
         <fileType name="KCL File" implementationClass="io.kusionstack.kcl.KCLFileType" fieldName="INSTANCE" language="KCL" extensions="k"/>
         <lang.parserDefinition language="KCL" implementationClass="io.kusionstack.kcl.KCLParserDefinition"/>
@@ -40,24 +37,20 @@
         <completion.contributor language="KCL" implementationClass="io.kusionstack.kcl.completion.KCLCompletionContributor"/>
         <lang.foldingBuilder language="KCL" implementationClass="io.kusionstack.kcl.KCLFoldingBuilder"/>
         <lang.braceMatcher language="KCL" implementationClass="io.kusionstack.kcl.KCLBraceMatcher"/>
-        <lineIndentProvider language="KCL" implementation="io.kusionstack.kcl.KCLLineIndentProvider"/>
-        <enterBetweenBracesDelegate language="KCL"
-                                    implementationClass="com.intellij.codeInsight.editorActions.enter.EnterBetweenBracesAndBracketsDelegate"/>
+        <lineIndentProvider implementation="io.kusionstack.kcl.KCLLineIndentProvider"/>
+        <enterBetweenBracesDelegate language="KCL" implementationClass="com.intellij.codeInsight.editorActions.enter.EnterBetweenBracesAndBracketsDelegate"/>
         <lang.psiStructureViewFactory language="KCL" implementationClass="io.kusionstack.kcl.KCLStructureViewFactory"/>
     </extensions>
-    <!-- Declare the default resource location for localizing menu strings -->
-    <resource-bundle>messages.ActionsBundle</resource-bundle>
+
     <actions>
         <!-- KCL Tools: the pop up action group -->
-        <group id="io.kusionstack.kcl.action.KCLToolsPopUpActionGroup" popup="true" icon="/icons/file.svg">
+        <group id="io.kusionstack.kcl.action.KCLToolsPopUpActionGroup" icon="/icons/file.svg">
             <add-to-group group-id="EditorPopupMenu" anchor="before" relative-to-action="CompareClipboardWithSelection"/>
             <add-to-group group-id="ToolsMenu" anchor="before" relative-to-action="ExternalToolsGroup"/>
             <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
-            <action id="io.kusionstack.kcl.action.FormatSingleFileAction" class="io.kusionstack.kcl.action.FormatSingleFileAction">
+            <action id="io.kusionstack.kcl.action.FormatSingleFileAction" class="io.kusionstack.kcl.action.FormatSingleFileAction" icon="/icons/file.svg">
             </action>
-            <action id="io.kusionstack.kcl.action.FormatDirectoryAction" class="io.kusionstack.kcl.action.FormatDirectoryAction">
-            </action>
-            <action id="io.kusionstack.kcl.action.FormatProjectAction" class="io.kusionstack.kcl.action.FormatProjectAction">
+            <action id="io.kusionstack.kcl.action.FormatDirectoryAction" class="io.kusionstack.kcl.action.FormatDirectoryAction" icon="/icons/file.svg">
             </action>
         </group>
         <group id="io.kusionstack.kcl.group.KCLHelpGroup" popup="true" icon="/icons/file.svg">

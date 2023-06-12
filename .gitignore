@@ -1,10 +1,11 @@
+.idea
+.qodana
 target/
 build/
 out/
 .project
 .classpath
 .settings/
-.idea
 .gradle/
 *.iml
 *.ipr

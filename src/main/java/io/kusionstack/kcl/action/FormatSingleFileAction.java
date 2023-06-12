@@ -25,9 +25,10 @@ public class FormatSingleFileAction extends AnAction {
     public void update(@NotNull AnActionEvent e) {
         // Using the event, evaluate the context, and enable or disable the action.
         // the action button is visible only when the current file is a kcl file
-        e.getPresentation().setVisible(isKCLFile(e.getRequiredData(CommonDataKeys.VIRTUAL_FILE)));
+        VirtualFile vf = e.getData(CommonDataKeys.VIRTUAL_FILE);
+        e.getPresentation().setVisible((vf != null && isKCLFile(vf)));
         // the action button is enabled only when kcl is installed
-        e.getPresentation().setEnabled(KCLBinaryUtil.KCLInstalled());
+        e.getPresentation().setEnabled(KCLBinaryUtil.KCLFmtCmdInstalled());
     }
 
     @Override
