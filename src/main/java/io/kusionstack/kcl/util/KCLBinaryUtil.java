@@ -19,13 +19,23 @@ import java.util.stream.Collectors;
 public class KCLBinaryUtil {
     private static final Logger LOGGER = Logger.getInstance(KCLBinaryUtil.class);
     public static        String KCLLocation;
+    public static final  String kclCmdName = "kcl";
+    public static final  String kclFmtCmdName = "kcl-fmt";
 
     static {
         KCLInstalled();
     }
 
     public static boolean KCLInstalled() {
-        for (String location : getKCLLocations()) {
+        return KCLCmdInstalled(kclCmdName);
+    }
+
+    public static boolean KCLFmtCmdInstalled() {
+        return KCLCmdInstalled(kclFmtCmdName);
+    }
+
+    public static boolean KCLCmdInstalled(String command) {
+        for (String location : getKCLCmdLocations(command)) {
             File file = new File(location);
             if (file.exists()) {
                 KCLLocation = location;
@@ -36,15 +46,15 @@ public class KCLBinaryUtil {
         return false;
     }
 
-    public static String[] getKCLLocations() {
+    public static String[] getKCLCmdLocations(String command) {
         String home = System.getProperty("user.home");
-        String[] kclParentPaths = {home, ".kusion", "kclvm", "bin", "kcl"};
+        String[] kclParentPaths = {home, ".kusion", "kclvm", "bin", command};
         return new String[] {Joiner.on(File.separator).join(kclParentPaths)};
     }
 
-    public static ExecuteResult execKCLCmd(String... options) {
-        if (!KCLInstalled()) {
-            LOGGER.error("KCL is not installed. Cannot exec kcl cmd.");
+    public static ExecuteResult execKCLCmd(String command, String... options) {
+        if (!KCLCmdInstalled(command)) {
+            LOGGER.error(String.format("KCL command %s is not installed. Cannot execute.", command));
             return ExecuteResult.KCLNotInstalled();
         }
         // assemble the KCL command from filePath & options

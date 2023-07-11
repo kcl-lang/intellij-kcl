@@ -1,9 +1,11 @@
-build:
-	gradle build
+default:
+	./gradlew build
 
-run-ide:
-	gradle runIde
-
+run:
+	./gradlew runIde
 
 test:
-	@echo "TODO..."
+	./gradlew test
+
+verify:
+	./gradlew verifyPluginConfiguration

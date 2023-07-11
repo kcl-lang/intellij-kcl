@@ -15,10 +15,10 @@ public class KCLFmtCommand {
     private static final Logger LOGGER = Logger.getInstance(KCLFmtCommand.class);
 
     public static boolean execute(@NotNull VirtualFile virtualFile) {
-        String[] options = {"--fmt", virtualFile.getCanonicalPath(), "-R"};
-        ExecuteResult result = KCLBinaryUtil.execKCLCmd(options);
+        String[] options = {virtualFile.getCanonicalPath(), "-R"};
+        ExecuteResult result = KCLBinaryUtil.execKCLCmd("kcl-fmt", options);
         if (!result.isSuccess()) {
-            LOGGER.error(String.format("kcl --fmt %s -R exec failed, err msg: %s", virtualFile.getPath(), result.getStderr()));
+            LOGGER.error(String.format("kcl-fmt %s -R exec failed, err msg: %s", virtualFile.getPath(), result.getStderr()));
         }
         return result.isSuccess();
     }
