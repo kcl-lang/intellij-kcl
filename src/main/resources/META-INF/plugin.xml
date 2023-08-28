@@ -8,6 +8,7 @@
     <vendor>KusionStack</vendor>
     <!-- Product and plugin compatibility requirements -->
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.ultimate</depends>
 
     <resource-bundle>messages.ActionsBundle</resource-bundle>
 
@@ -40,6 +41,7 @@
         <lineIndentProvider implementation="io.kusionstack.kcl.KCLLineIndentProvider"/>
         <enterBetweenBracesDelegate language="KCL" implementationClass="com.intellij.codeInsight.editorActions.enter.EnterBetweenBracesAndBracketsDelegate"/>
         <lang.psiStructureViewFactory language="KCL" implementationClass="io.kusionstack.kcl.KCLStructureViewFactory"/>
+        <platform.lsp.serverSupportProvider implementation="io.kusionstack.kcl.KCLLspServerSupportProvider"/>
     </extensions>
 
     <actions>
