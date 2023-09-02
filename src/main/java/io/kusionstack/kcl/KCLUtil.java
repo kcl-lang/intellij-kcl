@@ -25,7 +25,7 @@ public class KCLUtil {
 
     public static PsiDirectory findKCLRoot(PsiDirectory dir) {
         while (dir != null) {
-            if (dir.findFile(KCL_MOD_FILE) != null) {
+            if (dir.findFile(KCL_MOD_FILE) != null ) {
                 return dir;
             }
             dir = dir.getParentDirectory();
@@ -77,6 +77,9 @@ public class KCLUtil {
         if (leadingDot == 0) {
             // 如果 import path 中不包含 leading dot，则优先按照绝对路径进行解析
             PsiDirectory kclRoot = findKCLRoot(currentDir);
+            if (kclRoot == null) {
+                return null;
+            }
             PsiFileSystemItem matched = getMatchedModule(kclRoot, importPaths.get(0).getName());
             if (matched != null) {
                 currentDir = kclRoot;
