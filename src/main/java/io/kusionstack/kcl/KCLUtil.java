@@ -25,7 +25,7 @@ public class KCLUtil {
 
     public static PsiDirectory findKCLRoot(PsiDirectory dir) {
         while (dir != null) {
-            if (dir.findFile(KCL_MOD_FILE) != null ) {
+            if (dir.findFile(KCL_MOD_FILE) != null) {
                 return dir;
             }
             dir = dir.getParentDirectory();
