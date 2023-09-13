@@ -5,7 +5,7 @@
 ## Prerequisites
 
 1. Install JDK 1.8 +
-2. Download IntelliJ IDEA 2020.2+
+2. Download IntelliJ IDEA Ultimate 2023.2+
 3. Make sure the bundled *Plugin DevKit* plugin is enabled. Install and enable *Grammar-Kit* and *PsiViewer* plugins.
 
 ## How To Build
@@ -29,4 +29,5 @@ It will launch a new IDE environment, in which you can create a project and add 
 - [Custom Language Support](https://jetbrains.org/intellij/sdk/docs/reference_guide/custom_language_support.html)
 - [Custom Language Support Tutorial](https://jetbrains.org/intellij/sdk/docs/tutorials/custom_language_support_tutorial.html)
 - [Testing a Custom Language Plugin](https://jetbrains.org/intellij/sdk/docs/tutorials/writing_tests_for_plugins.html)
+- [Language Server Protocol for Plugin Developers](https://blog.jetbrains.com/platform/2023/07/lsp-for-plugin-developers/)
 

@@ -8,7 +8,7 @@ The KCL IntelliJ IDEA plugin provides rich language support for the [KCL languag
 Welcome to KCL developing! We hope this plugin enhances your development experience with KCL.
 
 -   **Step 1.** Install kcl on your system. We highly recommend to [install the Kusion tools package](https://kusionstack.io/docs/user_docs/getting-started/install) which contains the KCL language support and other tools. 
--   **Step 2.** Install the KCL plugin for IntelliJ IDEA. Download the distribution from [here](distributions) and in IntelliJ IDEA, click Preference -> plugins -> install Plugin from Disk... -> select kcl-idea-plugin zip -> restart IDE. This plugin requires the IntelliJ IDEA 2020.2+
+-   **Step 2.** Install the KCL plugin for IntelliJ IDEA. Download the distribution from [here](distributions) and in IntelliJ IDEA, click Preference -> plugins -> install Plugin from Disk... -> select kcl-idea-plugin zip -> restart IDE. This plugin requires the IntelliJ IDEA Ultimate 2023.2+
 -   **Step 3.** Open or create a KCL file and begin your KCL tour!
 
 <div style="text-align: center;"><img src="docs/img/how-to-install.gif" alt="IntelliJ KCL Plugin install"></div>
