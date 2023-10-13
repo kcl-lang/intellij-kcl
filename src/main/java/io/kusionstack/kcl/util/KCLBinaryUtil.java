@@ -35,23 +35,17 @@ public class KCLBinaryUtil {
     }
 
     public static boolean KCLCmdInstalled(String command) {
-        for (String location : getKCLCmdLocations(command)) {
-            File file = new File(location);
+        String[] kclParentPaths = System.getenv("PATH").split(File.pathSeparator);
+        for (String location :kclParentPaths) {
+            File file = new File(Joiner.on(File.separator).join(location, command));
             if (file.exists()) {
-                KCLLocation = location;
-                LOGGER.info(String.format("KCL location: %s", location));
+                KCLLocation = file.getAbsolutePath();
+                LOGGER.info(String.format("KCL command %s location: %s", command, KCLLocation));
                 return true;
             }
         }
         return false;
     }
-
-    public static String[] getKCLCmdLocations(String command) {
-        String home = System.getProperty("user.home");
-        String[] kclParentPaths = {home, ".kusion", "kclvm", "bin", command};
-        return new String[] {Joiner.on(File.separator).join(kclParentPaths)};
-    }
-
     public static ExecuteResult execKCLCmd(String command, String... options) {
         if (!KCLCmdInstalled(command)) {
             LOGGER.error(String.format("KCL command %s is not installed. Cannot execute.", command));

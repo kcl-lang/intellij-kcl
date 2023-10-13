@@ -14,8 +14,9 @@ Welcome to KCL developing! We hope this plugin enhances your development experie
 <div style="text-align: center;"><img src="docs/img/how-to-install.gif" alt="IntelliJ KCL Plugin install"></div>
 
 ## Features
-
-This extension provides coding assistance such as basic syntax highlight, IntelliSense such as auto complete, and some basic code navigation. Other useful features such as diagnostics and testing are in developing.
+<!-- Plugin description -->
+This extension provides coding assistance such as basic syntax highlight, IntelliSense such as auto complete, and some basic code navigation. Other useful features such as diagnostics and testing are in development.
+<!-- Plugin description end -->
 
 ### Highlight
 <div style="text-align: center;"><img src="docs/img/highlight.jpg" alt="highlight"></div>
