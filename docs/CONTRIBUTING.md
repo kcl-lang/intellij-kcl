@@ -4,7 +4,7 @@
 
 ## Prerequisites
 
-1. Install JDK 1.8 +
+1. Install JDK 17
 2. Download IntelliJ IDEA Ultimate 2023.2+
 3. Make sure the bundled *Plugin DevKit* plugin is enabled. Install and enable *Grammar-Kit* and *PsiViewer* plugins.
 

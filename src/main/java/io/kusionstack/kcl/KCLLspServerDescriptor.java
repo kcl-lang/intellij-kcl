@@ -16,7 +16,7 @@ public class KCLLspServerDescriptor extends ProjectWideLspServerDescriptor {
 
     @Override
     public GeneralCommandLine createCommandLine() {
-        GeneralCommandLine generalCommandLine = new GeneralCommandLine("kcl-language-server", "--stdio");
+        GeneralCommandLine generalCommandLine = new GeneralCommandLine("kcl-language-server");
         return generalCommandLine;
     }
 }
