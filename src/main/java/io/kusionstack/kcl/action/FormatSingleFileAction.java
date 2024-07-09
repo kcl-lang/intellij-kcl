@@ -3,6 +3,7 @@
  */
 package io.kusionstack.kcl.action;
 
+import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import io.kusionstack.kcl.KCLFileType;
 import io.kusionstack.kcl.util.KCLBinaryUtil;
 import io.kusionstack.kcl.util.KCLFmtCommand;
@@ -53,5 +54,10 @@ public class FormatSingleFileAction extends AnAction {
             return (virtualFile.getFileType() instanceof KCLFileType);
         }
         return false;
+    }
+
+    @Override
+    public @NotNull ActionUpdateThread getActionUpdateThread(){
+        return ActionUpdateThread.BGT;
     }
 }

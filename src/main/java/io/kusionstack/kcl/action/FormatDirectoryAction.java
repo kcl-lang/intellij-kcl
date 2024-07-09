@@ -3,6 +3,7 @@
  */
 package io.kusionstack.kcl.action;
 
+import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import io.kusionstack.kcl.util.KCLBinaryUtil;
 import io.kusionstack.kcl.util.KCLFmtCommand;
 import com.intellij.openapi.actionSystem.AnActionEvent;
@@ -39,5 +40,10 @@ public class FormatDirectoryAction extends DumbAwareAction {
         VirtualFile file = e.getRequiredData(CommonDataKeys.VIRTUAL_FILE);
         KCLFmtCommand.execute(file);
         VfsUtil.markDirtyAndRefresh(true, true, true, file);
+    }
+
+    @Override
+    public @NotNull ActionUpdateThread getActionUpdateThread(){
+        return ActionUpdateThread.BGT;
     }
 }
