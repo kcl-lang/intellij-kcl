@@ -3,6 +3,7 @@
  */
 package io.kusionstack.kcl.action;
 
+import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import io.kusionstack.kcl.util.KCLBinaryUtil;
 import io.kusionstack.kcl.util.KCLFmtCommand;
 import com.intellij.openapi.actionSystem.AnActionEvent;
@@ -26,7 +27,7 @@ public class FormatDirectoryAction extends DumbAwareAction {
         VirtualFile vf = e.getData(CommonDataKeys.VIRTUAL_FILE);
         e.getPresentation().setVisible((vf != null && vf.isDirectory()));
         // the action button is enabled only when kcl is installed
-        e.getPresentation().setEnabled(KCLBinaryUtil.KCLFmtCmdInstalled());
+        e.getPresentation().setEnabled(KCLBinaryUtil.KCLInstalled());
     }
 
     @Override
@@ -37,7 +38,12 @@ public class FormatDirectoryAction extends DumbAwareAction {
         FileDocumentManager.getInstance().saveAllDocuments();
         // do kcl fmt
         VirtualFile file = e.getRequiredData(CommonDataKeys.VIRTUAL_FILE);
-        KCLFmtCommand.execute(file);
+        KCLFmtCommand.execute(file, true);
         VfsUtil.markDirtyAndRefresh(true, true, true, file);
+    }
+
+    @Override
+    public @NotNull ActionUpdateThread getActionUpdateThread(){
+        return ActionUpdateThread.BGT;
     }
 }

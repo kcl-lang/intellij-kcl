@@ -5,11 +5,13 @@ package io.kusionstack.kcl.util;
 
 import com.google.common.base.Joiner;
 import com.intellij.openapi.diagnostic.Logger;
+import com.intellij.util.EnvironmentUtil;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.stream.Collectors;
 
 /**
@@ -20,8 +22,6 @@ public class KCLBinaryUtil {
     private static final Logger LOGGER = Logger.getInstance(KCLBinaryUtil.class);
     public static        String KCLLocation;
     public static final  String kclCmdName = "kcl";
-    public static final  String kclFmtCmdName = "kcl-fmt";
-
     static {
         KCLInstalled();
     }
@@ -30,12 +30,8 @@ public class KCLBinaryUtil {
         return KCLCmdInstalled(kclCmdName);
     }
 
-    public static boolean KCLFmtCmdInstalled() {
-        return KCLCmdInstalled(kclFmtCmdName);
-    }
-
     public static boolean KCLCmdInstalled(String command) {
-        String[] kclParentPaths = System.getenv("PATH").split(File.pathSeparator);
+        String[] kclParentPaths = EnvironmentUtil.getValue("PATH").split(File.pathSeparator);
         for (String location :kclParentPaths) {
             File file = new File(Joiner.on(File.separator).join(location, command));
             if (file.exists()) {
@@ -46,16 +42,19 @@ public class KCLBinaryUtil {
         }
         return false;
     }
-    public static ExecuteResult execKCLCmd(String command, String... options) {
-        if (!KCLCmdInstalled(command)) {
-            LOGGER.error(String.format("KCL command %s is not installed. Cannot execute.", command));
+    public static ExecuteResult execKCLSubCmd(String subCommand, String... options) {
+        if (!KCLInstalled()) {
+            LOGGER.error(String.format("KCL command %s is not installed. Cannot execute.", subCommand));
             return ExecuteResult.KCLNotInstalled();
         }
         // assemble the KCL command from filePath & options
-        String[] cmd = new String[1 + options.length];
+        String[] cmd = new String[2 + options.length];
+
         cmd[0] = KCLLocation;
-        System.arraycopy(options, 0, cmd, 1, options.length);
+        cmd[1] = subCommand;
+        System.arraycopy(options, 0, cmd, 2, options.length);
         try {
+            LOGGER.info(String.format("run cmd %s ", Arrays.toString(cmd)));
             Process process = Runtime.getRuntime().exec(cmd);
             process.waitFor();
             if (process.exitValue() == 0) {
