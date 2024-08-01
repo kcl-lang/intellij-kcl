@@ -1,9 +1,14 @@
 # KCL Plugin for IntelliJ IDEA
+<!-- Plugin description -->
+
+<!-- This specific section of `Plugin description` is a source for the [plugin.xml](/src/main/resources/META-INF/plugin.xml) file which will be extracted by the [Gradle](/build.gradle.kts) during the build process. 
+To keep everything working, do not remove `<!-- ... ->`
+-->
 
 The KCL IntelliJ IDEA plugin provides rich language support for the [KCL language](https://kcl-lang.io/).
 
 In addition, we also have a plugin implemented based on the LSP(Language Server Protocol), which can be found [here](https://github.com/kcl-lang/intellij-kcl-lsp)
-
+<!-- Plugin description end -->
 ## Quick Start
 
 Welcome to KCL developing! We hope this plugin enhances your development experience with KCL.
@@ -26,7 +31,7 @@ This extension provides coding assistance such as basic syntax highlight, Intell
 
 This extension provides baisc keywords completion
 
-<!-- ### Code Formatting
+### Code Formatting
 
 Right click on the editor and select KCL Tools -> Format File to format current KCL file:
 
@@ -38,7 +43,7 @@ Right click on the target directory in the project structure panel, select KCL T
 
 Right click on the project name in the project structure panel, select KCL Tools -> Format Project to format all files in the project:
 
-<div style="text-align: center;"><img src="docs/img/format-project.png" alt="format project"></div> -->
+<div style="text-align: center;"><img src="docs/img/format-project.png" alt="format project"></div>
 
 
 ## Ask for help
