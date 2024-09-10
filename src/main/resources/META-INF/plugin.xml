@@ -29,6 +29,9 @@
 
       ]]>
     </description>
+
+    <depends>com.redhat.devtools.lsp4ij</depends>
+
     <extensions defaultExtensionNs="com.intellij">
         <fileType name="KCL File" implementationClass="io.kusionstack.kcl.KCLFileType" fieldName="INSTANCE" language="KCL" extensions="k"/>
         <lang.parserDefinition language="KCL" implementationClass="io.kusionstack.kcl.KCLParserDefinition"/>
@@ -40,6 +43,20 @@
         <lineIndentProvider implementation="io.kusionstack.kcl.KCLLineIndentProvider"/>
         <enterBetweenBracesDelegate language="KCL" implementationClass="com.intellij.codeInsight.editorActions.enter.EnterBetweenBracesAndBracketsDelegate"/>
         <lang.psiStructureViewFactory language="KCL" implementationClass="io.kusionstack.kcl.KCLStructureViewFactory"/>
+    </extensions>
+
+    <extensions defaultExtensionNs="com.redhat.devtools.lsp4ij">
+        <languageMapping language="KCL"
+                         serverId="KCLLanguageServerId"/>
+        <server factoryClass="io.kusionstack.kcl.KCLLanguageServerFactory"
+                id="KCLLanguageServerId">
+            <description><![CDATA[
+                This is the official KCL-lang Language Server.
+                For more information, visit the
+                <a href="https://kcl-lang.io">KCL-lang Website</a> and the
+                <a href="https://github.com/kcl-lang/intellij-kcl">KCL IntelliJ Plugin GitHub Repository</a>.
+            ]]></description>
+        </server>
     </extensions>
 
     <actions>
