@@ -51,9 +51,11 @@
         <server factoryClass="io.kusionstack.kcl.KCLLanguageServerFactory"
                 id="KCLLanguageServerId">
             <description><![CDATA[
-            Some description written in HTML to display it in the LSP consoles view and Language Servers settings.
-            ]]>
-            </description>
+                This is the official KCL-lang Language Server.
+                For more information, visit the
+                <a href="https://kcl-lang.io">KCL-lang Website</a> and the
+                <a href="https://github.com/kcl-lang/intellij-kcl">KCL IntelliJ Plugin GitHub Repository</a>.
+            ]]></description>
         </server>
     </extensions>
 
