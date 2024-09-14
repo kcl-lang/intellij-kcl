@@ -9,7 +9,7 @@ public class KCLLanguageServerFactory implements LanguageServerFactory {
 
     @Override
     public @NotNull StreamConnectionProvider createConnectionProvider(@NotNull Project project) {
-        return new KCLLanguageServer();
+        return new KCLLanguageServer(project);
     }
 
 }

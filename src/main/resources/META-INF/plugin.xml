@@ -43,6 +43,7 @@
         <lineIndentProvider implementation="io.kusionstack.kcl.KCLLineIndentProvider"/>
         <enterBetweenBracesDelegate language="KCL" implementationClass="com.intellij.codeInsight.editorActions.enter.EnterBetweenBracesAndBracketsDelegate"/>
         <lang.psiStructureViewFactory language="KCL" implementationClass="io.kusionstack.kcl.KCLStructureViewFactory"/>
+        <notificationGroup id="KCL LSP" displayType="BALLOON"/>
     </extensions>
 
     <extensions defaultExtensionNs="com.redhat.devtools.lsp4ij">
