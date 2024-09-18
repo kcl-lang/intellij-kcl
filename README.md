@@ -7,7 +7,6 @@ To keep everything working, do not remove `<!-- ... ->`
 
 The KCL IntelliJ IDEA plugin provides rich language support for the [KCL language](https://kcl-lang.io/).
 
-In addition, we also have a plugin implemented based on the LSP(Language Server Protocol), which can be found [here](https://github.com/kcl-lang/intellij-kcl-lsp)
 <!-- Plugin description end -->
 ## Quick Start
 
@@ -21,30 +20,18 @@ Welcome to KCL developing! We hope this plugin enhances your development experie
 
 ## Features
 
-This extension provides coding assistance such as basic syntax highlight, IntelliSense such as auto complete, and some basic code navigation. Other useful features such as diagnostics and testing are in developing.
+This extension provides many coding assistance based on Language Server Protocol.
 
-### Highlight
++ **Highlight:** Syntax and semantic highlight
++ **Completion:** Completion for keywords, variable name, attributes and more
++ **Goto definition:** Goto definition of schema, variable, schema attribute, and import pkg
++ **Structure:** Main definition(schema def) and variables in KCL file
++ **Hover:** Identifier information (type and schema documentation)
++ **Diagnostics:** Warnings and errors in KCL file
++ **Code Action:** Quick fix for some errors
++ **InlayHint:** Hint for variable type, function and schema args
 
-<div style="text-align: center;"><img src="docs/img/highlight.jpg" alt="highlight"></div>
-
-### Completion
-
-This extension provides baisc keywords completion
-
-### Code Formatting
-
-Right click on the editor and select KCL Tools -> Format File to format current KCL file:
-
-<div style="text-align: center;"><img src="docs/img/format-file.png" alt="format file"></div>
-
-Right click on the target directory in the project structure panel, select KCL Tools -> Format Directory to format all files under the selected folder:
-
-<div style="text-align: center;"><img src="docs/img/format-directory.png" alt="format directory"></div>
-
-Right click on the project name in the project structure panel, select KCL Tools -> Format Project to format all files in the project:
-
-<div style="text-align: center;"><img src="docs/img/format-project.png" alt="format project"></div>
-
+Other useful features such as diagnostics and testing are in developing.
 
 ## Ask for help
 
