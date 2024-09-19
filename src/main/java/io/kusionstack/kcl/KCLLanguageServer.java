@@ -17,13 +17,14 @@ import com.redhat.devtools.lsp4ij.server.ProcessStreamConnectionProvider;
 public class KCLLanguageServer extends ProcessStreamConnectionProvider {
 
     public KCLLanguageServer(Project project) {
-        String kclLSPPath = findExecutableInPATH("kcl-language-server");
-        if(kclLSPPath!=null && !kclLSPPath.isEmpty()) {
+        try {
+            String kclLSPPath = findExecutableInPATH("kcl-language-server");
             super.setCommands(List.of(kclLSPPath));
-        } else {
+        } catch (Exception e) {
             NotificationGroupManager.getInstance().getNotificationGroup("KCL LSP").createNotification(
                     "KCL LSP",
-                    "KCL Language Server not found. Make sure it is installed properly (and is available in PATH), and restart the IDE.",
+                    "KCL Language Server not found. Ensure it is installed properly (and is available in PATH), and restart the IDE. "
+                            + "Note: A path containing a colon ':' may cause issues on some systems.",
                     NotificationType.ERROR
             ).notify(project);
             LanguageServerManager.getInstance(project).stop("KCLLanguageServerId");
@@ -38,12 +39,12 @@ public class KCLLanguageServer extends ProcessStreamConnectionProvider {
         // Append '.exe' to the executable name if on Windows, otherwise leave it as is
         String executableName = isWindows ? executable + ".exe" : executable;
 
-        Optional<File> foundExecutable =  envVariablesMap.values().stream()
-                                                         // Split the PATH by the platform-specific separator (':' for Unix, ';' for Windows)
-                                                         .flatMap(path -> Stream.of(path.split(File.pathSeparator)))
-                                                         .map(path -> Path.of(path,executableName).toFile())
-                                                         .filter(file -> file.exists() && file.canExecute())
-                                                         .findFirst();
+        Optional<File> foundExecutable = Stream.of(envVariablesMap.get("PATH"))
+                                               // Split the PATH by the platform-specific separator (':' for Unix, ';' for Windows)
+                                               .flatMap(path -> Stream.of(path.split(File.pathSeparator)))
+                                               .map(path -> Path.of(path,executableName).toFile())
+                                               .filter(file -> file.exists() && file.canExecute())
+                                               .findFirst();
 
         return foundExecutable.map(File::getPath).orElse(null);
     }
