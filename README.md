@@ -14,7 +14,7 @@ Welcome to KCL developing! We hope this plugin enhances your development experie
 
 - **Step 1.** [Install KCL](https://kcl-lang.io/docs/user_docs/getting-started/install) on your system.
 
-- **Step 2.** Install the KCL plugin for IntelliJ IDEA in Marketplace. Preference -> plugins -> Marketplace -> search `KCL` -> install -> restart IDE. This plugin requires the IntelliJ IDEA Ultimate 2023.2+
+- **Step 2.** Install the KCL plugin for IntelliJ IDEA in Marketplace. Preference -> plugins -> Marketplace -> search `KCL` -> install -> restart IDE.
 
 - **Step 3.** Open or create a KCL file and begin your KCL tour!
 
