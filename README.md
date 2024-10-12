@@ -1,3 +1,5 @@
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/kcl-lang/intellij-kcl/ci.yml)
+[![JetBrains Plugin Version](https://img.shields.io/jetbrains/plugin/v/io.kusionstack.kcl)](https://plugins.jetbrains.com/plugin/23378-kcl)
 # KCL Plugin for IntelliJ IDEA
 <!-- Plugin description -->
 
@@ -31,7 +33,14 @@ This extension provides many coding assistance based on Language Server Protocol
 + **Code Action:** Quick fix for some errors
 + **InlayHint:** Hint for variable type, function and schema args
 
+![image](./docs/img/preview.png)
+
+
 Other useful features such as diagnostics and testing are in developing.
+
+## Requirements
++ Intellij IDEA 2023.2 or more recent
++ Java JDK (or JRE) 17 or more recent
 
 ## Ask for help
 
