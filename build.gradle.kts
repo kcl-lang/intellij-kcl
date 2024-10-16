@@ -41,6 +41,7 @@ dependencies {
         bundledPlugins(providers.gradleProperty("platformBundledPlugins").map { it.split(',') })
 
         instrumentationTools()
+        zipSigner()
     }
 
 
@@ -55,7 +56,7 @@ kotlin {
 intellijPlatform {
     pluginConfiguration {
         name = properties("pluginName")
-        version = properties("platformVersion")
+        version = properties("pluginVersion")
 
         // Extract the <!-- Plugin description --> section from README.md and provide for the plugin's manifest
 
@@ -86,6 +87,7 @@ intellijPlatform {
 
         ideaVersion {
             sinceBuild = providers.gradleProperty("pluginSinceBuild")
+            untilBuild = providers.gradleProperty("pluginUntilBuild")
         }
     }
 
