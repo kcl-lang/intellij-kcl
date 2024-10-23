@@ -10,7 +10,6 @@ on:
     types: [prereleased, released]
   push:
     branches:
-      - main
       - "releases/*"
 
 jobs:
