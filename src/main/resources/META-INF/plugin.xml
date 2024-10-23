@@ -66,10 +66,6 @@
             <add-to-group group-id="EditorPopupMenu" anchor="before" relative-to-action="CompareClipboardWithSelection"/>
             <add-to-group group-id="ToolsMenu" anchor="before" relative-to-action="ExternalToolsGroup"/>
             <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
-            <action id="io.kusionstack.kcl.action.FormatSingleFileAction" class="io.kusionstack.kcl.action.FormatSingleFileAction" icon="/icons/file.svg">
-            </action>
-            <action id="io.kusionstack.kcl.action.FormatDirectoryAction" class="io.kusionstack.kcl.action.FormatDirectoryAction" icon="/icons/file.svg">
-            </action>
         </group>
         <group id="io.kusionstack.kcl.group.KCLHelpGroup" popup="true" icon="/icons/file.svg">
             <action id="io.kusionstack.kcl.action.OpenKCLHelpAction" class="io.kusionstack.kcl.action.OpenKCLHelpAction"
