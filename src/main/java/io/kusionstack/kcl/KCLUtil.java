@@ -113,7 +113,11 @@ public class KCLUtil {
         return null;
     }
 
-    private static PsiFileSystemItem getMatchedModule(PsiDirectory current, String name) {
+    private static @Nullable PsiFileSystemItem getMatchedModule(@Nullable PsiDirectory current, String name) {
+        if (current == null) {
+            // Early return if current is null
+            return null;
+        }
         // 优先检查子目录
         PsiDirectory dir = current.findSubdirectory(name);
         if (dir != null) {
