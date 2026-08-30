@@ -184,7 +184,7 @@ private multiplier ::= SI_N_L | SI_U_L | SI_M_L | SI_K_L | SI_K | SI_M | SI_G | 
     | SI_K_IEC | SI_M_IEC | SI_G_IEC | SI_T_IEC | SI_P_IEC
 private string ::= STRING | LONG_STRING
 private constant ::= TRUE | FALSE | NONE | UNDEFINED
-private comp_op ::= EQUAL_TO | NOT_EQUAL_TO | LESS_THAN | GREATER_THAN | LESS_THAN_OR_EQUAL_TO | GREATER_THAN_OR_EQUAL_TO | IN | K_NOT IN | IS | IS K_NOT | K_NOT
+private comp_op ::= EQUAL_TO | NOT_EQUAL_TO | LESS_THAN | GREATER_THAN | LESS_THAN_OR_EQUAL_TO | GREATER_THAN_OR_EQUAL_TO | K_NOT IN | IS K_NOT | IN | IS | K_NOT
 private ellipsis ::= DOT DOT DOT
 // keep end of line comment rule, in order to make sure the token type COMMENT is used, therefore the KCLTypes.COMMENT type will be generated.
 private end_of_line_comment ::= COMMENT
