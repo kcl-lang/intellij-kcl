@@ -1,5 +1,8 @@
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/kcl-lang/intellij-kcl/ci.yml)
+[![License](https://img.shields.io/github/license/kcl-lang/intellij-kcl)](LICENSE)
 [![JetBrains Plugin Version](https://img.shields.io/jetbrains/plugin/v/io.kusionstack.kcl)](https://plugins.jetbrains.com/plugin/23378-kcl)
+[![JetBrains Plugin Downloads](https://img.shields.io/jetbrains/plugin/d/io.kusionstack.kcl)](https://plugins.jetbrains.com/plugin/23378-kcl)
+[![JetBrains Plugin Rating](https://img.shields.io/jetbrains/plugin/rating/io.kusionstack.kcl)](https://plugins.jetbrains.com/plugin/23378-kcl)
 # KCL Plugin for IntelliJ IDEA
 <!-- Plugin description -->
 
