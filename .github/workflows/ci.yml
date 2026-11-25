@@ -1,3 +1,11 @@
+# Build and test the IntelliJ plugin with the Gradle wrapper.
+#
+# After the move to IntelliJ Platform Gradle Plugin 2.x, `./gradlew build`
+# compiles the project but does not package the plugin. The distributable
+# ZIP is produced by `buildPlugin` (build/distributions/*.zip). Tests are
+# `./gradlew test`. `verifyPluginStructure` checks plugin.xml and the
+# archive without running the full Plugin Verifier.
+
 name: Build and Test
 
 on:
@@ -6,22 +14,56 @@ on:
     branches:
       - main
       - "releases/*"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  actions: write
+  contents: read
 
 jobs:
   build:
+    name: Build and test
     runs-on: ubuntu-latest
+    timeout-minutes: 40
     steps:
-    - name: Checkout project sources
-      uses: actions/checkout@v3
-    # Set up Java environment for the next steps
-    - name: Setup Java
-      uses: actions/setup-java@v4
-      with:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 2023.3 platform builds target Java 17. Matches release.yml and the Kotlin toolchain.
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
           distribution: zulu
           java-version: 17
-    - name: Setup Gradle
-      uses: gradle/gradle-build-action@v2
-    - name: Run build with Gradle Wrapper
-      run: make
-    - name: Run test with Gradle Wrapper
-      run: make test
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-home-cache-cleanup: true
+
+      - name: Build plugin
+        run: ./gradlew buildPlugin verifyPluginStructure --stacktrace
+
+      - name: Test
+        run: ./gradlew test --stacktrace
+
+      - name: Upload test reports
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports
+          path: |
+            build/reports/tests/
+            build/test-results/
+          if-no-files-found: ignore
+
+      - name: Upload plugin distribution
+        uses: actions/upload-artifact@v4
+        with:
+          name: intellij-kcl
+          path: build/distributions/*.zip
+          if-no-files-found: error
